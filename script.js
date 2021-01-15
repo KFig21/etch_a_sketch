@@ -33,7 +33,8 @@ sketch.addEventListener("mouseover", function(e){
     const blackButton = document.querySelector("#black");
     blackButton.addEventListener("click", black);
 
-    function black () {
+    function black (e) {
+        e.target.classList.add('selection');
         fillColor = 'black';
     }
 
@@ -41,7 +42,8 @@ sketch.addEventListener("mouseover", function(e){
     const eraserButton = document.querySelector("#eraser");
     eraserButton.addEventListener("click", eraser);
 
-    function eraser () {
+    function eraser (e) {
+        e.target.classList.add('selection');
         fillColor = `${canvasColor}`;
     }
 
@@ -49,7 +51,8 @@ sketch.addEventListener("mouseover", function(e){
     const randomButton = document.querySelector("#random");
     randomButton.addEventListener("click", random);
 
-    function random () {
+    function random (e) {
+        e.target.classList.add('selection');
         fillColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
     }
 
@@ -64,11 +67,20 @@ sketch.addEventListener("mouseover", function(e){
         fillColor = event.target.value;
     }
 
+        // transitions
+        function removeTransition(e){
+            if (e.propertyName !== 'transform') return; // skip it if its not a transform
+            this.classList.remove('selection');
+        }
+        const choices = document.querySelectorAll('.tool-button');
+        choices.forEach(choice => choice.addEventListener('transitionend', removeTransition));
+
 // clear grid
 
 clearButton.addEventListener("click", clearGrid);
 
-function clearGrid () {
+function clearGrid (e) {
+    e.target.classList.add('selection');
     const container = document.querySelector("#container");
     while (container.firstChild) {
         container.removeChild(container.firstChild);
