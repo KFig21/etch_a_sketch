@@ -79,8 +79,8 @@ sketch.addEventListener("mouseover", function(e){
 
 clearButton.addEventListener("click", clearGrid);
 
-function clearGrid (e) {
-    e.target.classList.add('selection');
+function clearGrid () {
+    clearButton.classList.add('selection');
     const container = document.querySelector("#container");
     while (container.firstChild) {
         container.removeChild(container.firstChild);
