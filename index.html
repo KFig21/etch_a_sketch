@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+        <!-- font -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <title>Mouse-A-Sketch</title>
+</head>
+<body>
+
+    <h1 id="heading">Mouse-A-Sketch</h1>
+
+    <div id="container">
+        
+    </div>
+
+    <div id="tools">
+        <button class="tool-button" id="black">black</button>
+        <button class="tool-button" id="eraser">eraser</button>
+        <div id="range-container">
+            <span id="pixel-span">Pixel count</span>
+            <input id="size" type="range" min="4" max="52" value="16" step="4" onchange="changeGridSize(this.value)">
+        </div>
+        <button class="tool-button" id="random">random</button>
+        <div id="color-container">
+            <input type="color" value="#ff0000" id="input-color">
+        </div>
+    </div>
+
+    <button class="tool-button" id="clear">clear</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
